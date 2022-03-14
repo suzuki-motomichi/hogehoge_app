@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<% if current_user.like?(@post) %>
+  <%= link_to "unLike", like_path(current_user.likes.find_by(post_id: @post.id)), method: :delete %>
+<% else %>
+  <%= link_to "Like", likes_path(post_id: @post.id), method: :post %>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

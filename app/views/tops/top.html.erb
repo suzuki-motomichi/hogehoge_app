@@ -1,0 +1,8 @@
+<h1>Tops#top</h1>
+<p>Find me in app/views/tops/top.html.erb</p>
+<% if logged_in? %>
+<%= link_to 'Post', posts_path %>
+<%= link_to "logout", logout_path, method: :delete %>
+<% else %>
+<%= link_to 'login', login_path %>
+<% end %>
