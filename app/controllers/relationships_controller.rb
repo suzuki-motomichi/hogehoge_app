@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
   before_action :set_user
   def create
     following = current_user.follow(@user)
-    binding.pry
+    # binding.pry
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
       redirect_to @user
