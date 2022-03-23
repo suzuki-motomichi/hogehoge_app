@@ -1,0 +1,17 @@
+<% unless current_user == user %>
+<%# ログインしているユーザーと引数のユーザーが同じであれば以下は表示しない %>
+<%# binding.pry %>
+  <% if current_user.following?(user) %> <%# ← following?()はUser.rbに書いてあるメソッド  %>
+  <%# ログインしているユーザーは引数のユーザーのfollow_idを持っているか？trueなら以下の'Unfollow'を表示 %>
+    <%= form_with model: current_user.relationships.find_by(follow_id: user.id), method: :delete, local: true do |f| %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <%= f.submit 'Unfollow' %>
+    <% end %>
+  <% else %>
+    <%# falseなら'Follow'を表示 %>
+    <%= form_with model: current_user.relationships.build, local: true do |f| %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <%= f.submit 'Follow' %>
+    <% end %>
+  <% end %>
+<% end %>

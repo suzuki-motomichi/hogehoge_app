@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    binding.pry
+    @post = Post.find(params[:id])
   end
 
   def update
