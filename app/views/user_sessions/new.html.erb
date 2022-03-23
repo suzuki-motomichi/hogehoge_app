@@ -4,3 +4,10 @@
 <br>
 <br>
 <%= link_to "登録", new_user_path %>
+# app/views/user_sessions/new.html.erb
+...
+<h1>Forgot Password?</h1>
+<%= render 'forgot_password_form' %>
+# app/views/user_sessions/new.html.erb
+...
+<%= link_to 'Forgot Password?', new_password_reset_path %>

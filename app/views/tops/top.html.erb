@@ -2,6 +2,9 @@
 <p>Find me in app/views/tops/top.html.erb</p>
 <% if logged_in? %>
 <%= link_to 'Post', posts_path %>
+<br>
+<%= link_to 'User', users_path%>
+<br>
 <%= link_to "logout", logout_path, method: :delete %>
 <% else %>
 <%= link_to 'login', login_path %>

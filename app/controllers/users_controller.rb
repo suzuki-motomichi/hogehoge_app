@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
 
   def index
+    @users = User.all
   end
 
   def new
@@ -19,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # binding.pry
+    @post = Post.find(params[:id])
   end
 
   def update

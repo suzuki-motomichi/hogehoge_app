@@ -1,0 +1,8 @@
+# app/views/password_resets/new.html.erb
+<%= form_with url: password_resets_path, local: true, method: :post do |form| %>
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+    <%= form.submit "Reset my password!" %>
+  </div>
+<% end %>

@@ -1,2 +1,10 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+<% @users.each do |v| %>
+<ul>
+<%= link_to v.name, user_path(v) %>
+</ul>
+<% end %>
+<h3>
+<%= link_to "TOP", root_path %>
+</h3>
